@@ -1,0 +1,26 @@
+{
+  "name": "elimu",
+  "version": "1.0.0",
+  "description": "Education Information System",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node server.js --progress",
+    "build": "set NODE_ENV=production&& webpack -p --progress"
+  },
+  "author": "emil.equiber",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bixbyte-frame": "^0.3.3",
+    "body-parser": "^1.15.2",
+    "bower": "^1.7.9",
+    "cookie-parser": "latest",
+    "express": "^4.14.0",
+    "express-session": "latest",
+    "html": "^1.0.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "nodemon": "^1.10.2"
+  }
+}
