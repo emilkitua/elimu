@@ -11,6 +11,10 @@ var app = angular.module("myApp", ["ngRoute", "controllers",'bixApp'])
 */
 	var routeArray = [
 		{ 
+			path :"/manage_levels",
+			template: "views/manage_levels.html"
+		}
+		,{ 
 			path :"/manage_users",
 			template: "views/manage_users.html"
 		}

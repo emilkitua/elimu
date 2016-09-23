@@ -150,85 +150,83 @@
             </form>
 
         
-        </div>
+            <!-- START DATATABLE EXPORT -->
+                        <div class="panel panel-default">
+                            <div id="my-data"></div>
+                            <div class="panel-heading">
 
-
-                        <!-- START DATATABLE EXPORT -->
-                                <div class="panel panel-default">
-                                    <div id="my-data"></div>
-                                    <div class="panel-heading">
-
-                                        <h3 class="panel-title">DataTable Export</h3>
-                                        <div class="btn-group pull-right">
-                                            
-                                            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='img/icons/xml.png' width="24"/> XML</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='img/icons/sql.png' width="24"/> SQL</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='img/icons/csv.png' width="24"/> CSV</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='img/icons/txt.png' width="24"/> TXT</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='img/icons/word.png' width="24"/> Word</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img src='img/icons/ppt.png' width="24"/> PowerPoint</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='img/icons/png.png' width="24"/> PNG</a></li>
-                                                <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a></li>
-                                            </ul>
-                                        </div>                                    
-                                        
-                                    </div>
-                                    <div class="panel-body">
-                                        <table id="customers2" class="table datatable">
-                                            <thead>
-                                                <tr>
-                                                    <th>User ID</th>
-                                                    <th>Name</th>
-                                                    <th>Email</th>
-                                                    <th>Phone</th>
-                                                    <!--<th>Role</th>-->
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            
-                                                <tr ng-repeat="user in fetched.users">
-                                                    <td ng-bind="user.user_id"></td>
-                                                    <td ng-model="user.name" ng-required="true" contenteditable>{{user.name}}</td>
-                                                    <td ng-model="user.email"  contenteditable>{{user.email}}</td>
-                                                    <td ng-model="user.phone"  contenteditable>{{user.phone}}</td>
-                                                    <!--<td >
-                                                        <select class="form-control select" 
-                                                        ng-model="user.role" 
-                                                        name="role">
-                                                            <option value="{{user.role}}" selected>{{}}</option>
-                                                            <option ng-repeat="role in fetched.roles" value="{{role.role_id}}">{{role.title}}</option>
-                                                        </select>
-                                                    </td>-->
-                                                    <td>
-                                                        <button class="btn btn-default" ng-click="update('users',{ name: user.name, email: user.email, phone: user.phone,  extras: ' user_id=\''+user.user_id+'\''},'my-data')"><i class="fa fa-pencil"></i></button>
-                                                        <button ng-class="user.active?'btn btn-success':' btn btn-danger'" ng-click="update('users',{ active:!user.active,  extras: ' user_id=\''+user.user_id+'\''},'my-data')"><i
-                                                        ng-class="user.active?'fa fa-eye':'fa fa-eye-slash'"></i></button>
-                                                         
-                                                    </td>
-                                                </tr>
-                                                
-                                            </tbody>
-                                        </table>                                    
-                                        
-                                    </div>
-                                </div>
-                                <!-- END DATATABLE EXPORT -->                            
+                                <h3 class="panel-title">DataTable Export</h3>
+                                <div class="btn-group pull-right">
+                                    
+                                    <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i> Export Data</button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false'});"><img src='img/icons/json.png' width="24"/> JSON</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'false',ignoreColumn:'[2,3]'});"><img src='img/icons/json.png' width="24"/> JSON (ignoreColumn)</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'json',escape:'true'});"><img src='img/icons/json.png' width="24"/> JSON (with Escape)</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'xml',escape:'false'});"><img src='img/icons/xml.png' width="24"/> XML</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'sql'});"><img src='img/icons/sql.png' width="24"/> SQL</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'csv',escape:'false'});"><img src='img/icons/csv.png' width="24"/> CSV</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'txt',escape:'false'});"><img src='img/icons/txt.png' width="24"/> TXT</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'excel',escape:'false'});"><img src='img/icons/xls.png' width="24"/> XLS</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'doc',escape:'false'});"><img src='img/icons/word.png' width="24"/> Word</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'powerpoint',escape:'false'});"><img src='img/icons/ppt.png' width="24"/> PowerPoint</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'png',escape:'false'});"><img src='img/icons/png.png' width="24"/> PNG</a></li>
+                                        <li><a href="#" onClick ="$('#customers2').tableExport({type:'pdf',escape:'false'});"><img src='img/icons/pdf.png' width="24"/> PDF</a></li>
+                                    </ul>
+                                </div>                                    
                                 
+                            </div>
+                            <div class="panel-body">
+                                <table id="customers2" class="table datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <!--<th>Role</th>-->
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                        <tr ng-repeat="user in fetched.users">
+                                            <td ng-bind="user.user_id"></td>
+                                            <td ng-model="user.name" ng-required="true" contenteditable>{{user.name}}</td>
+                                            <td ng-model="user.email"  contenteditable>{{user.email}}</td>
+                                            <td ng-model="user.phone"  contenteditable>{{user.phone}}</td>
+                                            <!--<td >
+                                                <select class="form-control select" 
+                                                ng-model="user.role" 
+                                                name="role">
+                                                    <option value="{{user.role}}" selected>{{}}</option>
+                                                    <option ng-repeat="role in fetched.roles" value="{{role.role_id}}">{{role.title}}</option>
+                                                </select>
+                                            </td>-->
+                                            <td>
+                                                <button class="btn btn-default" ng-click="update('users',{ name: user.name, email: user.email, phone: user.phone,  extras: ' user_id=\''+user.user_id+'\''},'my-data')"><i class="fa fa-pencil"></i></button>
+                                                <button ng-class="user.active?'btn btn-success':' btn btn-danger'" ng-click="update('users',{ active:!user.active,  extras: ' user_id=\''+user.user_id+'\''},'my-data')"><i
+                                                ng-class="user.active?'fa fa-eye':'fa fa-eye-slash'"></i></button>
+                                                    
+                                            </td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>                                    
+                                
+                            </div>
+                        </div>
+                        <!-- END DATATABLE EXPORT -->  
 
-                </div>
-                       
-                
-            </div>
-            <!-- END PAGE CONTENT WRAPPER -->             
-            
+        </div>              
+ <br>
+    </div>
+      <br>      
+    
+</div>
+<!-- END PAGE CONTENT WRAPPER -->             
+       <br>     

@@ -1,9 +1,9 @@
                   
-                <div class="" ng-init="fetch([['roles']])"></div>
+                <div class="" ng-init="fetch([['levels']])"></div>
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Administrator</a></li>                    
-                    <li class="active">Manage Roles</li>
+                    <li class="active">Manage Levels</li>
                 </ul>
                 <!-- END BREADCRUMB -->                
                 
@@ -18,35 +18,35 @@
                        
                         <div class="col-md-12">
                            
-                            <button class="btn btn-primary" ng-click="frmToggle()">Role Management</button>
+                            <button class="btn btn-primary" ng-click="frmToggle()">Level Management</button>
                             <br>
                             <!--<form class="form-horizontal" id="school_form" onsubmit="return false;" enctype="multipart/form-data">-->
-                            <form class="form-horizontal" name="roleForm" id="roleForm" novalidate>
+                            <form class="form-horizontal" name="levelForm" id="levelForm" novalidate>
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title"><strong>Adding Roles</strong> Details</h3>
+                                        <h3 class="panel-title"><strong>Adding Level</strong> Details</h3>
                                         <ul class="panel-controls">
-                                             <li><a href="/#/" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                                            <li><a href="/#/" class="panel-remove"><span class="fa fa-times"></span></a></li>
                                         </ul>
                                     </div>
                                     <div class="panel-body">
-                                        <p>This manages the different roles in the school e.g administrator,teacher,parent,student</p>
+                                        <p>This manages the different class levels in the school e.g grade 1,grade 2 ...</p>
                                     </div>
                                     
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label class="col-md-3 col-xs-12 control-label">Role title <sup style="color:red;">*</sup></label>
+                                            <label class="col-md-3 col-xs-12 control-label">Title <sup style="color:red;">*</sup></label>
                                             <div class="col-md-6 col-xs-12">                                            
                                                 <div class="input-group">
                                                     <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                                    <input 
-                                                    ng-minlength="3" 
+                                                    <input  
                                                     ng-required="true" 
                                                     type="text" 
                                                     class="form-control" 
-                                                    ng-model="data.roles.title"/>
+                                                    ng-model="data.levels.title"
+                                                    placeholder="Grade 1"/>
                                                 </div>                                            
-                                                <span ng-if="!data.roles.title" class="help-block">Enter a role title</span>
+                                                <span ng-if="!data.levels.title" class="help-block">Enter a level title</span>
                                             </div>
                                         </div>
                                         
@@ -55,16 +55,17 @@
                                             <button type="reset" class="btn btn-default">Clear Form</button>
                                             <!--<input type="submit" class="btn btn-primary pull-right" value="Submit" onclick="return submit()" >-->
                                             <button 
-                                            ng-disabled="!roleForm.$valid" 
+                                            ng-disabled="!levelForm.$valid" 
                                             class="btn btn-primary pull-right" 
-                                            ng-click="add('roles',data.roles)"
+                                            ng-click="add('levels',data.levels)"
                                             type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
 
-                             <!-- START DATATABLE EXPORT -->
+                        
+                            <!-- START DATATABLE EXPORT -->
                         <div class="panel panel-default">
                             <div id="my-data"></div>
                             <div class="panel-heading">
@@ -98,20 +99,34 @@
                                 <table id="customers2" class="table datatable">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>Title</th>
+                                            <th>ID</th>
+                                            <th>TITLE</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     
-                                        <tr ng-repeat="role in fetched.roles">
-                                            <td ng-bind="role.role_id"></td>
-                                            <td ng-model="role.title" contenteditable>{{role.title}}</td>
+                                        <tr ng-repeat="level in fetched.levels">
+                                            
+                                            
+                                            <td ng-model="level.level_id" >{{level.level_id}}</td>
+                                            <td ng-model="level.title" contenteditable >{{level.title}}</td>
                                             <td>
-                                                <button class="btn btn-default" ng-click="update('roles',{ title: role.title,  extras: ' role_id=\''+role.role_id+'\''},'my-data')"><i class="fa fa-pencil"></i></button>
-                                                    <button class="btn btn-danger" ng-click="del('roles',{  extras: ' WHERE role_id=\''+role.role_id+'\''},'my-data')"><i class="fa fa-trash-o"></i></button>
                                                 
+                                                <button 
+                                                ng-disabled="false" 
+                                                class="btn btn-default" 
+                                                ng-click="update('levels',{ title: level.title,  extras: ' level_id=\''+level.level_id+'\''},'my-data')">
+                                                    <i 
+                                                    class="fa fa-pencil"></i>
+                                                </button>
+                                                    <button 
+                                                    ng-class="level.active?'btn btn-success':' btn btn-danger'" 
+                                                    ng-click="update('levels',{ active:!level.active,  extras: ' level_id=\''+level.level_id+'\''},'my-data')">
+                                                    <i
+                                                    ng-class="level.active?'fa fa-eye':'fa fa-eye-slash'">
+                                                    </i>
+                                                </button>
                                             </td>
                                         </tr>
                                         
@@ -120,13 +135,13 @@
                                 
                             </div>
                         </div>
-                        <!-- END DATATABLE EXPORT -->                            
-                                
-                        
+                        <!-- END DATATABLE EXPORT -->      
+
                         </div>
                 
 
-                       
+                                              
+                                
 
                 </div>
                        
